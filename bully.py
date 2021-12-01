@@ -40,7 +40,7 @@ def loadNewInventory():
 
 # view items in inventory db
 def viewAll(arg):
-    inventory = ref.get()
+    inventory = ref.get()["Inventory"]
     for category in inventory:
         if arg == "all" or arg == "categories" or arg == category:
             print("\n"+category, end="")
@@ -61,7 +61,7 @@ def viewAll(arg):
 def login():
     print("Login:")
     newUser = input("Are you a new user (y/n/exit)? ")
-    if newUser == "quit":
+    if newUser == "exit":
         return 0
     if newUser == "y":
         # TODO: create new user
@@ -88,7 +88,7 @@ def processCmd(ans):
     elif ans == "/viewAll":
         viewAll("all")
     elif "/viewAll " in ans:
-        inventory = ref.get()
+        inventory = ref.get()["Inventory"]
         category = ans.split(" ")[1].capitalize()
         if "categories" in ans:
             viewAll("categories")
