@@ -17,9 +17,12 @@ ref = db.reference("/")
 # display help menu
 def helpMenu():
     print("\n-----Available commands-----")
-    print("1:   /exit    -- exits shop")
-    print("2:   /loadNew -- loads a new inventory to the bullypy database (overwrites existing data)")
-    print("3:   /viewAll -- view all available items in the store")
+    print("1:     /exit               -- exits shop")
+    print("2:     /loadNew            -- loads a new inventory to the bullypy database (overwrites existing data)")
+    print("3:     /viewAll <category> -- view items in store with argument support.")
+    print("\n       USAGE: /viewAll            - shows all items in store")
+    print("              /viewAll categories - shows all categories available in store")
+    print("              /viewAll hats       - shows all hats in store (this can be changed to any category)")
     print()
 
 # loads new inventory json file
@@ -39,8 +42,9 @@ def loadNewInventory():
 def viewAll(arg):
     inventory = ref.get()
     for category in inventory:
-        print("\n"+category, end="")
-        if arg == 0 or arg == 2:
+        if arg == "all" or arg == "categories" or arg == category:
+            print("\n"+category, end="")
+        if arg == "all" or arg == category:
             print("s:")
             for item in range(len(inventory[category])):
                 i = inventory[category][item]
@@ -50,20 +54,26 @@ def viewAll(arg):
                 print("Color: "+str(i["color"]))
                 print("Size: "+str(i["size"]))
                 print("In Stock: "+str(i["stockNumber"])+"\n")
-    if arg == 1:
+    if arg == "categories":
         print("\n")
 
 # prompt user for login details and verify user with firebase
 def login():
     print("Login:")
-    newUser = input("Are you a new user (y/n)? ")
+    newUser = input("Are you a new user (y/n/quit)? ")
+    if newUser == "quit":
+        return 0
     if newUser == "y":
         # TODO: create new user
-        print()
-        print("New account created!")
-    user = input("\nUsername: ")
-    pw = input("Password: ")
-    # TODO: verify user
+        print("\nNew account created!")
+    while True:
+        user = input("\nUsername: ")
+        pw = input("Password: ")
+        if len(user) > 0 and len(pw) > 0:
+            break
+        else:
+            print("\nPlease enter username/password!")
+    # TODO: verify user login
     print("\nWelcome <username>!")
 
 # process user commands
@@ -76,22 +86,25 @@ def processCmd(ans):
     elif ans == "/loadNew":
         loadNewInventory()
     elif ans == "/viewAll":
-        viewAll(0)
+        viewAll("all")
     elif "/viewAll " in ans:
         inventory = ref.get()
         category = ans.split(" ")[1].capitalize()
         if "categories" in ans:
-            viewAll(1)
+            viewAll("categories")
         # category argument can be singular/plural or uppercase/lowercase
-        elif category in inventory or category[:len(category)-1] in inventory:
-            viewAll(2)
+        elif category in inventory:
+            viewAll(category)
+        elif category[:len(category)-1] in inventory:
+            viewAll(category[:len(category)-1])
     else:
         print("\n"+ans, "-- not a valid command. Type /help to see a list of commands.\n")
 
 def main():
     print("Welcome to the BullyPy store!")
     print("-----------------------------")
-    login()
+    if login() == 0:
+        return 0
 
     print("Enter /help to see list of available commands or /exit to exit the shop")
 
