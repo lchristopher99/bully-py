@@ -1,0 +1,23 @@
+{
+  "Hat":
+  [
+    {
+      "itemID": "hat_1_maroon",
+      "stockNumber": 1,
+      "weight": 0.5,
+      "price": 9.99,
+      "color": "Maroon",
+      "size": "Large",
+      "logoDescription": "Maroon hat with walking bulldog logo on front."
+    },
+    {
+      "itemID": "hat_1_white",
+      "stockNumber": 1,
+      "weight": 0.5,
+      "price": 9.99,
+      "color": "White",
+      "size": "Large",
+      "logoDescription": "White hat with walking bulldog logo on front."
+    }
+  ]
+}
