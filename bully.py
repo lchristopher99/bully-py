@@ -46,9 +46,9 @@ def viewAll(arg):
             print("\n"+category, end="")
         if arg == "all" or arg == category:
             print("s:")
-            for item in range(len(inventory[category])):
+            for item in inventory[category]:
                 i = inventory[category][item]
-                print("Item ID: "+i["itemID"])
+                print("Item ID: "+item)
                 print("Description: "+i["logoDescription"])
                 print("Price: $"+str(i["price"]))
                 print("Color: "+str(i["color"]))
