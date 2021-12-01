@@ -60,7 +60,7 @@ def viewAll(arg):
 # prompt user for login details and verify user with firebase
 def login():
     print("Login:")
-    newUser = input("Are you a new user (y/n/quit)? ")
+    newUser = input("Are you a new user (y/n/exit)? ")
     if newUser == "quit":
         return 0
     if newUser == "y":
@@ -74,7 +74,7 @@ def login():
         else:
             print("\nPlease enter username/password!")
     # TODO: verify user login
-    print("\nWelcome <username>!")
+    print("\nWelcome "+user+"!")
 
 # process user commands
 def processCmd(ans):
