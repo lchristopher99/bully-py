@@ -1,0 +1,29 @@
+{
+  "firstName": "Bob",
+  "lastName": "Lazar",
+  "username": "b_lazar",
+  "password": "123",
+  "address": {
+    "streetAddress": "123 addr dr",
+    "city": "stark",
+    "state": "ms",
+    "zip": 12345
+  },
+  "creditCard": {
+    "name": "Bob Lazar",
+    "securityCode": 123,
+    "expirationDate": "12/23/29",
+    "number": 12345879934
+  },
+  "Cart": {
+    "totalPrice": 0,
+    "totalWeight": 0,
+    "totalItems": 0,
+    "items": {
+
+    }
+  },
+  "Order History": {
+
+  }
+}

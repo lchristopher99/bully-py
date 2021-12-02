@@ -1,5 +1,7 @@
 # inventory system
 from inv_sys.inventory import Inventory
+from user.account import Account
+from user.cart import Cart
 # menus
 from menus.help import HelpMenu
 
@@ -20,6 +22,9 @@ class MainMenu:
             HelpMenu.display()
         elif ans == "/loadNew":
             Inventory.loadNew()
+            Account.loadNew()
+        elif ans == "/viewCart":
+            Cart.viewCart()
         elif ans == "/viewAll":
             Inventory.viewAll("all")
         elif "/viewAll " in ans:

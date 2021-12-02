@@ -23,6 +23,9 @@ class LoginMenu:
             for key in Account.getCurrent():
                 if user == Account.getCurrent()[key]["username"] and pw == Account.getCurrent()[key]["password"]:
                     print("\nWelcome "+user+"!")
+                    file = open("./user/login_token.txt", "w")
+                    file.write(key)
+                    file.close()
                     login = True
             if not login:
                 print("\nUser not found in database!\n")

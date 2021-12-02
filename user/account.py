@@ -16,6 +16,18 @@ class Account:
         ref = db.reference("/Users")
         return ref
 
+    # pushes new account json file to database 
+    # TODO: making this data randomized would be cool
+    def loadNew():
+        try:
+            with open("user/account.json", "r") as f:
+                file_contents = json.load(f)
+            Account.getRef().push().set(file_contents)
+            print("\nNew account loaded to firebase!\n")
+        except Exception as e:
+            print("\nError loading account file:")
+            logging.error(traceback.format_exc())
+
     # create new account in firebase
     def create():
         firstName = input("\nEnter first name: ")
@@ -31,8 +43,8 @@ class Account:
         state = input("Enter state: ")
         zip = input("Enter zip: ")
         account = {
-            "First Name": firstName,
-            "Last Name": lastName,
+            "firstName": firstName,
+            "lastName": lastName,
             "username": user,
             "password": pw,
             "address": {
@@ -48,9 +60,12 @@ class Account:
                 "number": cardNum
             },
             "Cart": {
-                "cartPrice": 0,
-                "cartWeight": 0,
-                "numItems": 0
+                "Total Price": 0,
+                "Total Weight": 0,
+                "Total Items": 0,
+                "items": {
+
+                }
             },
             "Order History": {
 

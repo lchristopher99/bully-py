@@ -16,20 +16,20 @@ class Inventory:
         ref = db.reference("/Inventory")
         return ref
 
-    # loads new inventory json file to database ref passed in
-    # NOTE: overwrites existing data in db
+    # loads new inventory json file to database 
+    # NOTE: overwrites existing inventory in db
     # TODO: making this data randomized would be cool
     def loadNew():
         try:
             with open("inv_sys/inventory.json", "r") as f:
                 file_contents = json.load(f)
             Inventory.getRef().set(file_contents)
-            print("\nNew inventory loaded to firebase!\n")
+            print("\nNew inventory loaded to firebase!")
         except Exception as e:
             print("\nError loading inventory file:")
             logging.error(traceback.format_exc())
 
-    # view items in inventory at database ref passed in
+    # view items in inventory database
     # accepts arguments for viewing all items,
     # viewing individual categories, and viewing all categorie names
     def viewAll(arg):
