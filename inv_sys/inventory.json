@@ -178,7 +178,7 @@
       "color": "Red",
       "gender": "F",
       "size": "M",
-      "material": "Polyester",
+      "description": "Polyester",
       "longSleeve": false
     },
     "shirt_2": {
@@ -188,7 +188,7 @@
       "color": "Blue",
       "gender": "M",
       "size": "L",
-      "material": "Cotton",
+      "description": "Cotton",
       "longSleeve": false
     },
     "shirt_3": {
@@ -198,7 +198,7 @@
       "color": "Green",
       "gender": "M",
       "size": "XS",
-      "material": "Cotton",
+      "description": "Cotton",
       "longSleeve": false
     }
   }
