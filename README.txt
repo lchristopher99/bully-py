@@ -15,3 +15,5 @@ Before running bully.py make sure firebase_admin is installed on your machine
   NOTE: Default login after /loadNew is:
         user: b_lazar
         pass: 123
+
+test
