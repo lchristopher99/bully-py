@@ -17,9 +17,9 @@ class MainMenu:
             print("Thanks for shopping with us... Goodbye :)")
             return 0
         elif ans == "/help":
-            HelpMenu.help()
+            HelpMenu.display()
         elif ans == "/loadNew":
-            Inventory.loadNewInventory()
+            Inventory.loadNew()
         elif ans == "/viewAll":
             Inventory.viewAll("all")
         elif "/viewAll " in ans:
@@ -28,9 +28,9 @@ class MainMenu:
             if "categories" in ans:
                 Inventory.viewAll("categories")
             # category argument can be singular/plural or uppercase/lowercase
-            elif category in Inventory.getCurrentInventory():
+            elif category in Inventory.getCurrent():
                     Inventory.viewAll(category)
-            elif category[:len(category)-1] in Inventory.getCurrentInventory():
+            elif category[:len(category)-1] in Inventory.getCurrent():
                     Inventory.viewAll(category[:len(category)-1])
         else:
             print("\n"+ans, "-- not a valid command. Type /help to see a list of commands.\n")

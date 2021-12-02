@@ -1,6 +1,6 @@
 class HelpMenu:
     # display help menu
-    def help():
+    def display():
         print("\n-----Available commands-----")
         print("1:     /exit               -- exits shop")
         print("2:     /loadNew            -- loads a new inventory to the bullypy database (overwrites existing data)")
