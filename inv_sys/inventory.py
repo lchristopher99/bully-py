@@ -7,23 +7,23 @@ import logging
 
 class Inventory:
     # returns current inventory json obj
-    def getCurrentInventory():
+    def getCurrent():
         ref = db.reference("/")
         return ref.get()["Inventory"]
 
-    # returns referene to database at root
-    def getDatabaseRef():
-        ref = db.reference("/")
+    # returns referene to inventory database
+    def getRef():
+        ref = db.reference("/Inventory")
         return ref
 
     # loads new inventory json file to database ref passed in
     # NOTE: overwrites existing data in db
     # TODO: making this data randomized would be cool
-    def loadNewInventory():
+    def loadNew():
         try:
             with open("inv_sys/inventory.json", "r") as f:
                 file_contents = json.load(f)
-            Inventory.getDatabaseRef().set(file_contents)
+            Inventory.getRef().set(file_contents)
             print("\nNew inventory loaded to firebase!\n")
         except Exception as e:
             print("\nError loading inventory file:")
@@ -33,13 +33,13 @@ class Inventory:
     # accepts arguments for viewing all items,
     # viewing individual categories, and viewing all categorie names
     def viewAll(arg):
-        for category in Inventory.getCurrentInventory():
+        for category in Inventory.getCurrent():
             if arg == "all" or arg == "categories" or arg == category:
                 print("\n"+category, end="")
             if arg == "all" or arg == category:
                 print("s:")
-                for item in Inventory.getCurrentInventory()[category]:
-                    i = Inventory.getCurrentInventory()[category][item]
+                for item in Inventory.getCurrent()[category]:
+                    i = Inventory.getCurrent()[category][item]
                     print("Item ID: "+item)
                     print("Description: "+i["logoDescription"])
                     print("Price: $"+str(i["price"]))
