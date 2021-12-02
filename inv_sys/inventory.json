@@ -1,26 +1,23 @@
 {
-  "Inventory":
+  "Hat":
   {
-    "Hat":
+    "hat_1_maroon":
     {
-      "hat_1_maroon":
-      {
-        "stockNumber": 1,
-        "weight": 0.5,
-        "price": 9.99,
-        "color": "Maroon",
-        "size": "Large",
-        "logoDescription": "Maroon hat with walking bulldog logo on front."
-      },
-      "hat_1_white":
-      {
-        "stockNumber": 1,
-        "weight": 0.5,
-        "price": 9.99,
-        "color": "White",
-        "size": "Large",
-        "logoDescription": "White hat with walking bulldog logo on front."
-      }
+      "stockNumber": 1,
+      "weight": 0.5,
+      "price": 9.99,
+      "color": "Maroon",
+      "size": "Large",
+      "logoDescription": "Maroon hat with walking bulldog logo on front."
+    },
+    "hat_1_white":
+    {
+      "stockNumber": 1,
+      "weight": 0.5,
+      "price": 9.99,
+      "color": "White",
+      "size": "Large",
+      "logoDescription": "White hat with walking bulldog logo on front."
     }
   }
 }
