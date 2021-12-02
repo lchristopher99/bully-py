@@ -16,7 +16,7 @@ class Inventory:
         ref = db.reference("/Inventory")
         return ref
 
-    # loads new inventory json file to database 
+    # loads new inventory json file to database
     # NOTE: overwrites existing inventory in db
     # TODO: making this data randomized would be cool
     def loadNew():

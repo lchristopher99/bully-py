@@ -15,7 +15,12 @@ def main():
 
     # main loop
     while True:
-        if MainMenu.processCmd(input("$ ")) == 0:
+        cmd = MainMenu.processCmd(input("$ "))
+        if cmd == 1:
+            if LoginMenu.login() == 0:
+                return 0
+            MainMenu.quickHelpPrompt()
+        elif cmd == 0:
             return 0
 
 main()
