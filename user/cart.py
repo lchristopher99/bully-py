@@ -121,6 +121,7 @@ class Cart:
                         print("Item added to cart!")
                 else:
                     print(itemID+" -- item not found in inventory!")
+                    return
                 i += 1
             print()
         except Exception as e:
@@ -169,8 +170,10 @@ class Cart:
                         print("Item removed from cart!")
                     else:
                         print(itemID+" -- item not found in cart!")
+                        return
                 else:
                     print("Cart is empty!")
+                    return
                 i += 1
             print()
         except Exception as e:
