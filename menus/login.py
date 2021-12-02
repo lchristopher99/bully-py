@@ -1,5 +1,3 @@
-from user.userAccount import UserAccount
-
 class LoginMenu:
     # prompt user for login details and verify user with firebase
     def login():
@@ -20,20 +18,6 @@ class LoginMenu:
             city = input("Enter city: ")
             state = input("Enter state: ")
             zip = input("Enter zip: ")
-            newAcc = UserAccount(
-                firstName,
-                lastName,
-                user,
-                pw,
-                cardName,
-                cardNum,
-                cardExp,
-                cardCVV,
-                addr,
-                city,
-                state,
-                zip
-            )
             print("\nNew account created!")
         while True:
             user = input("\nUsername: ")
