@@ -5,7 +5,7 @@ def adjust_cart(user, shirt_id, adjustment):
     fb = firebase.FirebaseApplication("https://bully-py-default-rtdb.firebaseio.com/", None)
     cart_path = "Users/" + user + "/Cart"
     cart_item_path = cart_path + "/" + shirt_id
-    item_path = "Inventory/Shirt/" + shirt_id
+    item_path = "Shirt/" + shirt_id
 
     # cartPrice += new_price
     new_price = fb.get(item_path, "price") * adjustment
@@ -67,7 +67,7 @@ class Shirt:
     # Remove shirt from cart
     def remove_shirt(user, shirt_id, quantity):
         fb = firebase.FirebaseApplication("https://bully-py-default-rtdb.firebaseio.com/")
-        item_path = "Inventory/Shirt/" + shirt_id
+        item_path = "Shirt/" + shirt_id
         cart_path = "Users/" + user + "/Cart"
         cart_item_path = cart_path + "/" + shirt_id
         
