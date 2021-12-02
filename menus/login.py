@@ -1,3 +1,5 @@
+from user.userAccount import UserAccount
+
 class LoginMenu:
     # prompt user for login details and verify user with firebase
     def login():
@@ -6,7 +8,32 @@ class LoginMenu:
         if newUser == "exit":
             return 0
         if newUser == "y":
-            # TODO: create new user
+            firstName = input("\nEnter first name: ")
+            lastName = input("Enter last name: ")
+            user = input("New username: ")
+            pw = input("New password: ")
+            cardName = input("Enter card name: ")
+            cardNum = input("Enter card number: ")
+            cardExp = input("Enter card expiration date: ")
+            cardCVV = input("Enter card security code: ")
+            addr = input("Enter address: ")
+            city = input("Enter city: ")
+            state = input("Enter state: ")
+            zip = input("Enter zip: ")
+            newAcc = UserAccount(
+                firstName,
+                lastName,
+                user,
+                pw,
+                cardName,
+                cardNum,
+                cardExp,
+                cardCVV,
+                addr,
+                city,
+                state,
+                zip
+            )
             print("\nNew account created!")
         while True:
             user = input("\nUsername: ")

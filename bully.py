@@ -6,7 +6,7 @@ from db.firebase import Firebase
 
 def main():
     # initialize database
-    Firebase.init_db()
+    Firebase.init_rtdb()
 
     MainMenu.welcomePrompt()
     if LoginMenu.login() == 0:

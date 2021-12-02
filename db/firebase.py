@@ -4,7 +4,7 @@ from firebase_admin import db
 
 class Firebase:
     # initialize database and set reference
-    def init_db():
+    def init_rtdb():
         # connect to firebase
         db_url = "https://bully-py-default-rtdb.firebaseio.com/"
         cred = credentials.Certificate("./db/bully-py_firebase.json")
