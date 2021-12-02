@@ -45,7 +45,7 @@ def adjust_cart(user, shirt_id, adjustment):
 class Shirt:
     def add_shirt(user, shirt_id, quantity):
         fb = firebase.FirebaseApplication("https://bully-py-default-rtdb.firebaseio.com/", None)
-        item_path = "Inventory/Shirt/" + shirt_id
+        item_path = "Shirt/" + shirt_id
 
         stock = fb.get(item_path, "stockNumber")
         if (stock == None): # Shirt does not exist
