@@ -8,7 +8,7 @@
       "price": 9.99,
       "color": "Maroon",
       "size": "Large",
-      "logoDescription": "Maroon hat with walking bulldog logo on front."
+      "description": "Maroon hat with walking bulldog logo on front."
     },
     "hat_1_white":
     {
@@ -17,7 +17,7 @@
       "price": 9.99,
       "color": "White",
       "size": "Large",
-      "logoDescription": "White hat with walking bulldog logo on front."
+      "description": "White hat with walking bulldog logo on front."
     }
   },
   "Cowbell":
@@ -29,7 +29,7 @@
       "price": 19.99,
       "color": "Maroon",
       "size": "Small",
-      "logoDescription": "Maroon cowbell with the wrapped M logo engraved."
+      "description": "Maroon cowbell with the wrapped M logo engraved."
     },
     "cowbell_1_white":
     {
@@ -38,7 +38,7 @@
       "price": 19.99,
       "color": "White",
       "size": "Small",
-      "logoDescription": "White cowbell with the wrapped M logo engraved."
+      "description": "White cowbell with the wrapped M logo engraved."
     },
     "cowbell_2_maroon":
     {
@@ -47,7 +47,7 @@
       "price": 25.99,
       "color": "Maroon",
       "size": "Medium",
-      "logoDescription": "Maroon cowbell with the M over S logo engraved."
+      "description": "Maroon cowbell with the M over S logo engraved."
     },
     "cowbell_2_white":
     {
@@ -56,7 +56,7 @@
       "price": 25.99,
       "color": "White",
       "size": "Medium",
-      "logoDescription": "White cowbell with the M over S logo engraved."
+      "description": "White cowbell with the M over S logo engraved."
     },
     "cowbell_3_maroon":
     {
@@ -65,7 +65,7 @@
       "price": 29.99,
       "color": "Maroon",
       "size": "Large",
-      "logoDescription": "Maroon cowbell with the hail state fight song engraved."
+      "description": "Maroon cowbell with the hail state fight song engraved."
     },
     "cowbell_3_white":
     {
@@ -74,7 +74,7 @@
       "price": 29.99,
       "color": "White",
       "size": "Large",
-      "logoDescription": "White cowbell with the hail state fight song engraved."
+      "description": "White cowbell with the hail state fight song engraved."
     }
   },
   "Jacket":
@@ -86,7 +86,7 @@
       "price": 9.99,
       "color": "Maroon",
       "size": "Extra Small",
-      "logoDescription": "Maroon jacket with white bulldog logo on front."
+      "description": "Maroon jacket with white bulldog logo on front."
     },
     "jacket_extra_small_white":
     {
@@ -95,7 +95,7 @@
       "price": 9.99,
       "color": "White",
       "size": "Extra Small",
-      "logoDescription": "White jacket with maroon bulldog logo on front."
+      "description": "White jacket with maroon bulldog logo on front."
     },
     "jacket_small_maroon":
     {
@@ -104,7 +104,7 @@
       "price": 14.99,
       "color": "Maroon",
       "size": "Small",
-      "logoDescription": "Maroon jacket with white bulldog logo on front."
+      "description": "Maroon jacket with white bulldog logo on front."
     },
     "jacket_small_white":
     {
@@ -113,7 +113,7 @@
       "price": 14.99,
       "color": "White",
       "size": "Small",
-      "logoDescription": "White jacket with maroon bulldog logo on front."
+      "description": "White jacket with maroon bulldog logo on front."
     },
     "jacket_medium_maroon":
     {
@@ -122,7 +122,7 @@
       "price": 19.99,
       "color": "Maroon",
       "size": "Medium",
-      "logoDescription": "Maroon jacket with white bulldog logo on front."
+      "description": "Maroon jacket with white bulldog logo on front."
     },
     "jacket_medium_white":
     {
@@ -131,7 +131,7 @@
       "price": 19.99,
       "color": "White",
       "size": "Medium",
-      "logoDescription": "White jacket with maroon bulldog logo on front."
+      "description": "White jacket with maroon bulldog logo on front."
     },
     "jacket_large_maroon":
     {
@@ -140,7 +140,7 @@
       "price": 24.99,
       "color": "Maroon",
       "size": "Large",
-      "logoDescription": "Maroon jacket with white bulldog logo on front."
+      "description": "Maroon jacket with white bulldog logo on front."
     },
     "jacket_large_white":
     {
@@ -149,7 +149,7 @@
       "price": 24.99,
       "color": "White",
       "size": "Large",
-      "logoDescription": "White jacket with maroon bulldog logo on front."
+      "description": "White jacket with maroon bulldog logo on front."
     },
     "jacket_extra_large_maroon":
     {
@@ -158,7 +158,7 @@
       "price": 29.99,
       "color": "Maroon",
       "size": "Extra Large",
-      "logoDescription": "Maroon jacket with white bulldog logo on front."
+      "description": "Maroon jacket with white bulldog logo on front."
     },
     "jacket_extra_large_white":
     {
@@ -167,7 +167,7 @@
       "price": 29.99,
       "color": "White",
       "size": "Extra Large",
-      "logoDescription": "White jacket with maroon bulldog logo on front."
+      "description": "White jacket with maroon bulldog logo on front."
     }
   },
   "Shirt":{

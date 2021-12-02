@@ -41,7 +41,7 @@ class Inventory:
                 for item in Inventory.getCurrent()[category]:
                     i = Inventory.getCurrent()[category][item]
                     print("Item ID: "+item)
-                    print("Description: "+i["logoDescription"])
+                    print("Description: "+i["description"])
                     print("Price: $"+str(i["price"]))
                     print("Color: "+i["color"])
                     print("Size: "+i["size"])

@@ -191,7 +191,7 @@ class Cart:
             for item in Cart.getCurrent()["Items"]:
                 i = Cart.getCurrent()["Items"][item]
                 print("\nItem ID: "+item)
-                print("Description: "+i["logoDescription"])
+                print("Description: "+i["description"])
                 print("Price: $"+str(i["price"]))
                 print("Color: "+i["color"])
                 print("Size: "+i["size"])
