@@ -19,5 +19,62 @@
       "size": "Large",
       "logoDescription": "White hat with walking bulldog logo on front."
     }
+  },
+  "Cowbell":
+  {
+    "cowbell_1_maroon":
+    {
+      "stockNumber": 1,
+      "weight": 1.33,
+      "price": 19.99,
+      "color": "Maroon",
+      "size": "Small",
+      "logoDescription": "Maroon cowbell with the wrapped M logo engraved."
+    },
+    "cowbell_1_white":
+    {
+      "stockNumber": 1,
+      "weight": 1.33,
+      "price": 19.99,
+      "color": "White",
+      "size": "Small",
+      "logoDescription": "White cowbell with the wrapped M logo engraved."
+    },
+    "cowbell_2_maroon":
+    {
+      "stockNumber": 1,
+      "weight": 1.69,
+      "price": 25.99,
+      "color": "Maroon",
+      "size": "Medium",
+      "logoDescription": "Maroon cowbell with the M over S logo engraved."
+    },
+    "cowbell_2_white":
+    {
+      "stockNumber": 1,
+      "weight": 1.69,
+      "price": 25.99,
+      "color": "White",
+      "size": "Medium",
+      "logoDescription": "White cowbell with the M over S logo engraved."
+    },
+    "cowbell_3_maroon":
+    {
+      "stockNumber": 1,
+      "weight": 2.00,
+      "price": 29.99,
+      "color": "Maroon",
+      "size": "Large",
+      "logoDescription": "Maroon cowbell with the hail state fight song engraved."
+    },
+    "cowbell_3_white":
+    {
+      "stockNumber": 1,
+      "weight": 2.00,
+      "price": 29.99,
+      "color": "White",
+      "size": "Large",
+      "logoDescription": "White cowbell with the hail state fight song engraved."
+    }
   }
 }
