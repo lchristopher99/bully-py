@@ -169,5 +169,35 @@
       "size": "Extra Large",
       "logoDescription": "White jacket with maroon bulldog logo on front."
     }
+  },
+  "Shirt":{
+    "shirt_1": {
+      "stockNumber": 6,
+      "weight": 5,
+      "price": 12.99,
+      "color": "Red",
+      "gender": "F",
+      "size": "M",
+      "material": "Polyester",
+      "longSleeve": false
+    },
+    "shirt_2": {
+      "stockNumber": 12,
+      "weight": 7,
+      "price": 17.99,
+      "color": "Blue",
+      "gender": "M",
+      "size": "L",
+      "material": "Cotton",
+      "longSleeve": false
+    },
+    "stockNumber": 16,
+      "weight": 8,
+      "price": 24.99,
+      "color": "Green",
+      "gender": "M",
+      "size": "XS",
+      "material": "Cotton",
+      "longSleeve": false
   }
 }
