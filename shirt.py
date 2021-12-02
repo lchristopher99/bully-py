@@ -1,8 +1,10 @@
 from firebase import firebase
 from requests.sessions import to_native_string
 
+db_url = "https://bully-py-default-rtdb.firebaseio.com/"
+
 def adjust_cart(user, shirt_id, adjustment):
-    fb = firebase.FirebaseApplication("https://bully-py-default-rtdb.firebaseio.com/", None)
+    fb = firebase.FirebaseApplication(db_url, None)
     cart_path = "Users/" + user + "/Cart"
     cart_item_path = cart_path + "/" + shirt_id
     item_path = "Shirt/" + shirt_id
@@ -31,21 +33,26 @@ def adjust_cart(user, shirt_id, adjustment):
         name = fb.put(cart_path, shirt_id, new_item)
     # Adjust quantity, total item price, and total item weight
     else: # Item already in cart
-        # Quantity += adjustment
+        # quantity += adjustment
         fb.put(cart_item_path, "quantity", fb.get(cart_item_path, "quantity") + adjustment)
         # Total item price += new_price
-        fb.put(cart_item_path, "totalItemPrice", round(fb.get(cart_item_path, "Total item price") + new_price, 2))
+        fb.put(cart_item_path, "totalItemPrice", round(fb.get(cart_item_path, "totalItemPrice") + new_price, 2))
         # Total item weight += new_weight
-        fb.put(cart_item_path, "totalItemWeight", round(fb.get(cart_item_path, "Total item weight") + new_weight, 2))
+        fb.put(cart_item_path, "totalItemWeight", round(fb.get(cart_item_path, "totalItemWeight") + new_weight, 2))
 
     # Delete the item from the cart if its quantity has been set to 0
     if fb.get(cart_item_path, "Quantity") == 0:
         fb.delete(cart_path, shirt_id)
 
 class Shirt:
-    def add_shirt(user, shirt_id, quantity):
-        fb = firebase.FirebaseApplication("https://bully-py-default-rtdb.firebaseio.com/", None)
-        item_path = "Shirt/" + shirt_id
+    def __init__(self, user, shirt_id, quantity):
+        self.user = user
+        self.shirt_id = shirt_id
+        self.quantity = quantity
+
+    def add_shirt(self):
+        fb = firebase.FirebaseApplication(db_url, None)
+        item_path = "Shirt/" + self.shirt_id
 
         stock = fb.get(item_path, "stockNumber")
         if (stock == None): # Shirt does not exist
@@ -54,35 +61,34 @@ class Shirt:
             return 0
 
         # Add as many shirts to the cart as is available, up to the desired number
-        if (stock >= quantity): # Enough items in stock
-            added_shirts = quantity
-            fb.put(item_path, "stockNum", stock - quantity)
+        if (stock >= self.quantity): # Enough items in stock
+            added_shirts = self.quantity
+            fb.put(item_path, "stockNumber", stock - self.quantity)
         else: # Not enough items in stock
             added_shirts = stock
-            fb.put(item_path, "stockNum", 0)
-        adjust_cart(user, shirt_id, added_shirts)
+            fb.put(item_path, "stockNumber", 0)
+        adjust_cart(self.user, self.shirt_id, added_shirts)
 
         return added_shirts
     
     # Remove shirt from cart
-    def remove_shirt(user, shirt_id, quantity):
-        fb = firebase.FirebaseApplication("https://bully-py-default-rtdb.firebaseio.com/")
-        item_path = "Shirt/" + shirt_id
-        cart_path = "Users/" + user + "/Cart"
-        cart_item_path = cart_path + "/" + shirt_id
+    def remove_shirt(self):
+        fb = firebase.FirebaseApplication(db_url, None)
+        item_path = "Shirt/" + self.shirt_id
+        cart_path = "Users/" + self.user + "/Cart"
+        cart_item_path = cart_path + "/" + self.shirt_id
         
-        num_in_cart = fb.get(cart_item_path, "Quantity")
+        num_in_cart = fb.get(cart_item_path, "quantity")
         if (num_in_cart == None): # Shirt not in cart
             return -1
-        
         # Remove as many shirts as possible from the cart, up to the desired number
-        if (num_in_cart >= quantity):
-            removed_shirts = quantity
+        if (num_in_cart >= self.quantity):
+            removed_shirts = self.quantity
         else: 
             removed_shirts = num_in_cart
-        adjust_cart(user, shirt_id, -1 * removed_shirts)
+        adjust_cart(self.user, self.shirt_id, -1 * removed_shirts)
         
         # Increase the number in stock by the number of removed shirts
-        fb.put(item_path, "stockNum", fb.get(item_path, "stockNum") + removed_shirts)
+        fb.put(item_path, "stockNumber", fb.get(item_path, "stockNumber") + removed_shirts)
 
         return removed_shirts
