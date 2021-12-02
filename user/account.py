@@ -58,6 +58,8 @@ class Account:
             accRef.child("username").set(input("\nUpdate username: "))
             accRef.child("password").set(input("Update password: "))
             print("\nLogin updated!\n")
+        else:
+            print("Invalid arguments for editAccount. Format should be 'editAccount <payment/shipping/name/username>'")
 
     # view account details
     def viewAccount():
