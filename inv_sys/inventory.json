@@ -191,7 +191,8 @@
       "material": "Cotton",
       "longSleeve": false
     },
-    "stockNumber": 16,
+    "shirt_3": {
+      "stockNumber": 16,
       "weight": 8,
       "price": 24.99,
       "color": "Green",
@@ -199,5 +200,6 @@
       "size": "XS",
       "material": "Cotton",
       "longSleeve": false
+    }
   }
 }
