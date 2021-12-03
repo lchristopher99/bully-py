@@ -15,6 +15,12 @@ class MainMenu:
 
     # process user commands from main loop
     def processCmd(ans):
+        # Check if one of the commands that has arguments has been entered
+        try:
+            baseCommand = ans[:ans.index(" ")]
+        except:
+            baseCommand = ans
+
         if ans == "/exit":
             print("Thanks for shopping with us... Goodbye :)")
             return 0
@@ -25,7 +31,7 @@ class MainMenu:
             Account.loadNew()
         elif ans == "/viewAll":
             Inventory.viewAll("all")
-        elif "/viewAll " in ans:
+        elif baseCommand == "/viewAll":
             # auto capitalize argument passed in
             category = ans.split(" ")[1].capitalize()
             if "categories" in ans:
@@ -37,21 +43,70 @@ class MainMenu:
                     Inventory.viewAll(category[:len(category)-1])
         elif ans == "/viewCart":
             Cart.viewCart()
-        elif "/addToCart " in ans:
-            num = ans.split(" ")[1]
-            itemID = ans.split(" ")[2]
-            Cart.add(int(num), itemID)
-        elif "/removeFromCart " in ans:
-            num = ans.split(" ")[1]
-            itemID = ans.split(" ")[2]
-            Cart.remove(int(num), itemID)
+        elif baseCommand == "/addToCart":
+            # Check for too few arguments and that first argument can be converted to an int
+            try:
+                num = ans.split(" ")[1]
+                itemID = ans.split(" ")[2]
+
+                # Check for extraneous arguments
+                try:
+                    test = ans.split(" ")[3]
+                    tooManyArgs = True
+                except:
+                    tooManyArgs = False
+                
+                if not tooManyArgs:
+                    Cart.add(int(num), itemID)
+                else:
+                    print("Invalid arguments for addToCart. Format should be 'addToCart <int> <item_id>'")
+            except:
+                print("Invalid arguments for addToCart. Format should be 'addToCart <int> <item_id>'")
+
+
+        elif baseCommand == "/removeFromCart":
+            # Check for too few arguments and that first argument can be converted to an int
+            try:
+                num = ans.split(" ")[1]
+                itemID = ans.split(" ")[2]
+
+                # Check for extraneous arguments
+                try:
+                    test = ans.split(" ")[3]
+                    tooManyArgs = True
+                except:
+                    tooManyArgs = False
+
+                if not tooManyArgs:
+                    Cart.remove(int(num), itemID)
+                else:
+                    print("Invalid arguments for removeFromCart. Format should be 'removeFromCart <int> <item_id>'")
+            except:
+                print("Invalid arguments for removeFromCart. Format should be 'removeFromCart <int> <item_id>")
+            
         elif ans == "/checkout":
             Cart.checkout()
         elif ans == "/viewHistory":
             Account.viewHistory()
-        elif "/editAccount " in ans:
-            infoType = ans.split(" ")[1]
-            Account.editAccount(infoType)
+        elif baseCommand == "/editAccount":
+            # Check for too few arguments
+            try:
+                infoType = ans.split(" ")[1]
+
+                # Check for extraneous arguments
+                try:
+                    test = ans.split(" ")[2]
+                    tooManyArgs = True
+                except:
+                    tooManyArgs = False
+
+                if not tooManyArgs:
+                    Account.editAccount(infoType)
+                else:
+                    print("Invalid arguments for editAccount. Format should be 'editAccount <payment/shipping/name/username>'")
+            except:
+                print("Invalid arguments for editAccount. Format should be 'editAccount <payment/shipping/name/username>'")
+
         elif ans == "/viewAccount":
             Account.viewAccount()
         elif ans == "/deleteAccount":
