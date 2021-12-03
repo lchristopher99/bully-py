@@ -24,9 +24,17 @@ def store_screen(user, command):
         cowbell = Cowbell()
         cowbell.display()
     elif (command == "edit payment"):
-        user.edit_payment()
+        card_number = input("Enter new credit card number: ")
+        card_name = input("Enter new credit card name: ")
+        card_security = input("Enter new security code: ")
+        card_expiration = input("Enter expiration date: ")
+        user.edit_payment(card_number, card_name, card_security, card_expiration)
     elif (command == "edit shipping"):
-        user.edit_shipping()
+        street_address = input("Enter new street address: ")
+        city = input("Enter new city: ")
+        state = input("Enter new state: ")
+        zip = input("Enter new zip code: ")
+        user.edit_shipping(street_address, city, state, zip)
     elif (command == "add item"):
         add_item(user)
     elif (command == "remove item"):
@@ -111,7 +119,6 @@ def checkout(user):
         print("No items in cart!")
     else:
         print("Transaction complete!")
-
 
 def display_cart(user):
     val = user.display_cart()

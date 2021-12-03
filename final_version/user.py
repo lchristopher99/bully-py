@@ -12,11 +12,7 @@ class User:
         self.username = "" # Used to get path to user in database
         self.logged_in = False
 
-    def edit_shipping(self):
-        street_address = input("Enter new street address: ")
-        city = input("Enter new city: ")
-        state = input("Enter new state: ")
-        zip = input("Enter new zip code: ")
+    def edit_shipping(self, street_address, city, state, zip):
         new_address = {
             "street": street_address,
             "city": city,
@@ -25,11 +21,7 @@ class User:
         }
         fb.put("Users/" + self.username, "shipping", new_address)
     
-    def edit_payment(self):
-        card_number = input("Enter new credit card number: ")
-        card_name = input("Enter new credit card name: ")
-        card_security = input("Enter new security code: ")
-        card_expiration = input("Enter expiration date: ")
+    def edit_payment(self, card_number, card_name, card_security, card_expiration):
         new_payment = {
             "name": card_name,
             "number": card_number,
