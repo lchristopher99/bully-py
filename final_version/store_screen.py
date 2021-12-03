@@ -109,7 +109,9 @@ def checkout(user):
     val = user.checkout()
     if val == -1:
         print("No items in cart!")
-    print("Transaction complete!")
+    else:
+        print("Transaction complete!")
+
 
 def display_cart(user):
     val = user.display_cart()
